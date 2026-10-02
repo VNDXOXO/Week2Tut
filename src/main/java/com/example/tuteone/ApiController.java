@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+
 @RestController
 public class ApiController {
     @GetMapping("/home")
@@ -19,10 +21,15 @@ public class ApiController {
     @GetMapping("/validate")
     public String validate(@PathParam("username") String username) {
         if (username.equals("movindu")) {
-            return "Baduwak";
+            return "Not welcome";
         }else{
             return "Welcome";
         }
+    }
+
+    @GetMapping("/status")
+    public String status() {
+        return LocalDateTime.now().toString();
     }
 
 
